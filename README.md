@@ -184,3 +184,7 @@ Error: INSTALLATION FAILED: release nginx-unsigned failed, and has been uninstal
 ghcr.io/lukehinds/nginx2@sha256:32d4567494509b13a40899885dfbee46cec32ce918e39125161ac4de8337339c signature keyless validation failed for authority authority-0 for ghcr.io/lukehinds/nginx2@sha256:32d4567494509b13a40899885dfbee46cec32ce918e39125161ac4de8337339c: no matching signatures:
 none of the expected identities matched what was in the certificate
 ```
+
+### credits
+
+A lot of the k8s configs was lifted from [here](https://medium.com/@slimm609/image-signing-validation-on-k8s-4b3202dbcd6c), so thanks due to @slimm609 / Brian Davis.
