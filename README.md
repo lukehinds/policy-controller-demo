@@ -1,7 +1,42 @@
 # sigstore policy controller demo
 
-This demo will show you how to use the sigstore policy controller to verify
-keyless sigstore signatures.
+This demo will show you how to use the sigstore policy (admission) controller to verify keyless sigstore signatures.
+
+## Huh, what the hell is keyless?
+
+Keyless is the slight of hand we use to perform crypto signing with no need for long term key management.
+
+The flow is in general terms:
+
+An ecdsa key pair is generated (encoded to memory, never to touch any disk).
+
+A user connects to sigstores fulcio CA to request a signing certificate. 
+
+Fulcio directs them to an OpenID connect provider of their choosing (such as Github, Google, Microsoft etc).
+
+If the user auths correctly, an ID Token is provided.
+
+The user then presents their OAuth2 ID Token to the sigstore fulcio CA and requests a X509 certificate.
+
+The certificate contains:
+
+* The Public Key of the ephemeral key pair.
+* The email address (stuck in a SAN)
+* It has a chain to the sigstore root CA
+
+The user then signs an artifact (container in this instance), and the digest / x509 cert are stored in sigstore rekor (transparency log)
+
+We can then drop the private key, as that signing event is effectively frozen in time. 
+
+We can now look at the transparency log and know that:
+
+At X time, a user with control of X OpenID account, was in possession of X key pair, and X key pair signed X container digest.
+
+Using the policy controller, we can then allow / deny an image, based on which OAuth2 account signed the image.
+
+As a follow up, I will add details of how we can use this for a sort of code provenance using GitHubs OpenID ambient credentials. 
+
+## Prerequisites 
 
 Five tools are required to run this demo:
 - [cosign](https://github.com/sigstore/cosign)
