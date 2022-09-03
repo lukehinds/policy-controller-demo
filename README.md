@@ -116,6 +116,8 @@ Sign the image with cosign
 cosign sign ghcr.io/{$GITHUB_USERNAME}/nginx:signed
 ```
 
+Attempt to deploy the signed version (should succeed)
+
 ```shell
 $ helm install nginx-signed --atomic -n nginx-ns1 ./manifests/nginx-demo -f manifests/nginx-signed.yaml
 
@@ -127,6 +129,15 @@ REVISION: 1
 TEST SUITE: None
 ```
 
+Attempt to deploy the unsigned version (should fail)
+
+
 ```shell
-helm install nginx-unsigned --atomic -n nginx-ns2 ./manifests/nginx-demo -f manifests/nginx-unsigned.yaml
+$ helm install nginx-unsigned --atomic -n nginx-ns1 ./manifests/nginx-demo -f manifests/nginx-unsigned.yaml
+
+Error: INSTALLATION FAILED: release nginx-unsigned failed, and has been uninstalled due to atomic being set: admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: sigstore-demo: spec.template.spec.containers[0].image
+ghcr.io/lukehinds/nginx2@sha256:32d4567494509b13a40899885dfbee46cec32ce918e39125161ac4de8337339c signature keyless validation failed for authority authority-0 for ghcr.io/lukehinds/nginx2@sha256:32d4567494509b13a40899885dfbee46cec32ce918e39125161ac4de8337339c: no matching signatures:
 ```
+
+Altenatively, you can use a different email address to sign the unsigned image,
+which should also fail
