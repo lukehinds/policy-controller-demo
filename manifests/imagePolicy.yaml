@@ -1,0 +1,12 @@
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: sigstore-demo
+spec:
+  images:
+  - glob: "**"
+  authorities:
+  - keyless:
+        identities:
+          - issuer: https://accounts.google.com
+            subject: {$EMAIL}@gmail.com

@@ -1,0 +1,9 @@
+name: nginx-demo
+
+image:
+  repository: ghcr.io/{$GITHUB_USERNAME}/nginx
+  tag: signed
+  pullPolicy: Always
+
+annotations: {}
+podAnnotations: {}

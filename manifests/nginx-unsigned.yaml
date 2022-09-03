@@ -1,0 +1,5 @@
+name: nginx-demo-unsigned
+
+image:
+  repository: ghcr.io/{$GITHUB_USERNAME}/nginx2
+  tag: unsigned
