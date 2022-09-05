@@ -8,5 +8,5 @@ spec:
   authorities:
   - keyless:
         identities:
-          - issuer: https://accounts.google.com
-            subject: {$EMAIL}@gmail.com
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/lukehinds/oidc-action/.github/workflows/docker-image.yml@refs/heads/main

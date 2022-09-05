@@ -1,9 +1,5 @@
-name: nginx-demo
+name: gh-actions-image
 
 image:
   repository: ghcr.io/lukehinds/cosign-keyless-demo
   tag: latest
-  pullPolicy: Always
-
-annotations: {}
-podAnnotations: {}
