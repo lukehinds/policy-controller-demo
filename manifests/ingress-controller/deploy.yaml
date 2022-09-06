@@ -393,10 +393,10 @@ spec:
     spec:
       containers:
       - args:
-        - /nginx-ingress-controller
+        - /sigstore-ingress-controller
         - --election-id=ingress-controller-leader
         - --controller-class=k8s.io/ingress-sigstore
-        - --ingress-class=nginx
+        - --ingress-class=sigstore
         - --configmap=$(POD_NAMESPACE)/ingress-sigstore-controller
         - --validating-webhook=:8443
         - --validating-webhook-certificate=/usr/local/certificates/cert
@@ -593,7 +593,7 @@ metadata:
     app.kubernetes.io/name: ingress-sigstore
     app.kubernetes.io/part-of: ingress-sigstore
     app.kubernetes.io/version: 1.2.1
-  name: nginx
+  name: sigstore
 spec:
   controller: k8s.io/ingress-sigstore
 ---
@@ -617,7 +617,7 @@ webhooks:
       path: /networking/v1/ingresses
   failurePolicy: Fail
   matchPolicy: Equivalent
-  name: validate.nginx.ingress.kubernetes.io
+  name: validate.sigstore.ingress.kubernetes.io
   rules:
   - apiGroups:
     - networking.k8s.io

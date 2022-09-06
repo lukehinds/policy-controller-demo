@@ -1,5 +1,5 @@
 name: nginx-demo-signed
 
 image:
-  repository: ghcr.io/{$GITHUB_USERNAME}/nginx
+  repository: ghcr.io/{GITHUB_USER}/nginx
   tag: signed

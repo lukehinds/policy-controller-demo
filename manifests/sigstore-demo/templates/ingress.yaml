@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: "{{ .Values.name }}"
 spec:
-  ingressClassName: nginx
+  ingressClassName: sigstore
   rules:
   - host: "{{ .Values.name }}.localtest.me"
     http:

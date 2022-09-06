@@ -1,0 +1,9 @@
+name: sigstore-demo
+
+image:
+  repository: ghcr.io/{GITHUB_USER}/cosign-keyless-action
+  tag: main
+  pullPolicy: Always
+
+annotations: {}
+podAnnotations: {}

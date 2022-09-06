@@ -148,7 +148,7 @@ policy.sigstore.dev
 Ensure the policy is applied to the correct namespace
     
 ```shell
-$ kubectl get ns nginx-ns1 -o jsonpath='{.metadata.labels}'
+$ kubectl get ns sigstore-ns1 -o jsonpath='{.metadata.labels}'
 {"kubernetes.io/metadata.name":"nginx-ns1","policy.sigstore.dev/include":"true"}
 ```
 
