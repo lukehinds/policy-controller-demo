@@ -1,0 +1,6 @@
+name: cosign-keyless-action
+
+image:
+  repository: ghcr.io/{GITHUB_USER}/cosign-keyless-action
+  # ghcr.io/lukehinds/sigstore-nginx:latest
+  tag: main

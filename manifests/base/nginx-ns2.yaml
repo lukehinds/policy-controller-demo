@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: nginx-ns2
-  labels:
-    kubernetes.io/metadata.name: nginx-ns2
-    policy.sigstore.dev/include: "true"
