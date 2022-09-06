@@ -10,3 +10,5 @@ spec:
         identities:
           - issuer: https://accounts.google.com
             subject: {$EMAIL}@gmail.com
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/{GITHUB_USER}/{REPO_NAME}/.github/workflows/build-push-sign.yml@refs/heads/main
