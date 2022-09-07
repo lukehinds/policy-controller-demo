@@ -11,4 +11,4 @@ spec:
           # - issuer: https://accounts.google.com
           #   subject: {$EMAIL}@gmail.com
           - issuer: https://token.actions.githubusercontent.com
-            subject: https://github.com/{GITHUB_USER}/cosign-keyless-action/.github/workflows/build-push-sign.yml@refs/heads/main
+            subject: https://github.com/{$GITHUB_USERNAME}/cosign-keyless-action/.github/workflows/build-push-sign.yml@refs/heads/main

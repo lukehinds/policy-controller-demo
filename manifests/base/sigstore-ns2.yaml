@@ -4,4 +4,4 @@ metadata:
   name: sigstore-ns2
   labels:
     kubernetes.io/metadata.name: sigstore-ns2
-    policy.sigstore.dev/include: "false"
+    policy.sigstore.dev/include: "true"
